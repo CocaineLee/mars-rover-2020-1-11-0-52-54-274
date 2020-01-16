@@ -8,14 +8,17 @@ import lombok.Setter;
 public class MarsCar {
 
   private Location location;
-  private Direction direction;
+  private Direction.Forward forward;
 
   public void receiveMission(String mission) {
     for (int i = 0; i < mission.length(); i++) {
-      if (mission.charAt(i) == 'M') {
-        if (direction.equals(Direction.E)) {
+      char c = mission.charAt(i);
+      if (c == 'M') {
+        if (forward.equals(Direction.Forward.E)) {
           this.location.moveYForward();
         }
+      } else if (c == 'L') {
+        this.forward = Direction.turnLeft(forward);
       }
     }
   }
