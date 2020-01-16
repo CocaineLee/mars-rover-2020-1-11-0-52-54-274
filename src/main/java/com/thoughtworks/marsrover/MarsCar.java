@@ -19,7 +19,10 @@ public class MarsCar {
         }
       } else if (c == 'L') {
         this.forward = Direction.turnLeft(forward);
+      }else if (c == 'R') {
+        this.forward = Direction.turnRight(forward);
       }
+
     }
   }
 }

@@ -16,6 +16,11 @@ public class Direction {
     return FORWARDS.get(nextIndex);
   }
 
+  public static Forward turnRight(Forward old) {
+    int nextIndex = (FORWARDS.indexOf(old) + 1) % FORWARDS.size();
+    return FORWARDS.get(nextIndex);
+  }
+
   public enum Forward {
     E,
     W,
