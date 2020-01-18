@@ -48,5 +48,17 @@ class MarsCarTest extends spock.lang.Specification {
       marsCar.getDirection() == new Direction(Direction.Forward.S)
   }
 
+  def 'car can turn to S,and move to (2,3) when forward E from(1,1)'() {
+    given:
+      marsCar.setLocation(new Location(1, 1))
+      marsCar.setDirection(new Direction(Direction.Forward.E))
+    when:
+      marsCar.receiveMission("RRRRLLLLMLMMLL")
+    then:
+      marsCar.getLocation() == new Location(2, 3)
+      marsCar.getDirection() == new Direction(Direction.Forward.S)
+  }
+
+
 
 }
